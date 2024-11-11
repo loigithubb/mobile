@@ -1,45 +1,105 @@
-import React from "react";
-import { View, Text, Image, StyleSheet } from "react-native";
+import React from 'react';
+import { View, Text, Image, StyleSheet, TouchableOpacity, SafeAreaView } from 'react-native';
+
 const ScreenProductDetail = ({ route }) => {
   const { product } = route.params;
   return (
-    <View style={styles.container}>
-      <Image style={styles.image} source={{ uri: product.img }} />
-      <Text style={styles.name}>{product.name}</Text>
-      <Text style={styles.price}>${product.price}</Text>
-      <Text style={styles.description}>
-        High-quality bike suitable for all terrains.
-      </Text>
-    </View>
+    <SafeAreaView style={styles.screen}>
+      <View style={styles.khungImage}>
+        <Image
+          source={{ uri: product.img }}
+          style={{ width: 292, height: 270 }}
+        />
+      </View>
+      <View>
+        <Text
+          style={{ ...styles.textProductDetail, color: 'black', fontSize: 35 }}>
+          {product.name}
+        </Text>
+        <Text style={{ ...styles.textProductDetail, fontSize: 20 }}>
+          Price: ${product.price}
+          <Text
+            style={{
+              color: 'black',
+              paddingLeft: 20,
+              textDecorationLine: 'line-through',
+            }}>
+            449$
+          </Text>
+        </Text>
+        <Text
+          style={{
+            ...styles.textProductDetail,
+            fontSize: 25,
+            color: 'black',
+            paddingTop: 15,
+            paddingBottom: 15,
+          }}>
+          Description
+        </Text>
+        <Text style={{ ...styles.textProductDetail, fontSize: 20 }}>
+          It is a very important form of writing as we write almost everything
+          in paragraphs, be it an answer, essay, story, emails, etc.
+        </Text>
+      </View>
+      <View style={{ width: 375 }}>
+        <View
+          style={{
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'space-around',
+          }}>
+          <TouchableOpacity>
+            <Image source={require('../assets/akar-icons_heart.png')} />
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={{ ...styles.buttonStart, borderRadius: 10, width: 269 }}>
+            <Text style={{ ...styles.text1, color: '#FFFFFF' }}>
+              Add to cart
+            </Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+    </SafeAreaView>
   );
 };
+
 const styles = StyleSheet.create({
-  container: {
+  screen: {
     flex: 1,
-    padding: 20,
-    alignItems: "center",
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    backgroundColor: '#FFFFFF',
   },
-  image: {
-    width: 200,
-    height: 200,
-    borderRadius: 10,
-    marginBottom: 20,
+  khungImage: {
+    width: 359,
+    height: 388,
+    backgroundColor: '#E941411A',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 35,
   },
-  name: {
-    fontSize: 24,
-    fontWeight: "bold",
-    marginBottom: 10,
-    color: "blue",
+  text1: {
+    fontFamily: 'VT323',
+    textAlign: 'center',
+    fontSize: 25,
+    fontWeight: 400,
+    lineHeight: 26,
+    alignContent: 'center',
   },
-  price: {
-    fontSize: 20,
-    color: "green",
-    marginBottom: 10,
+  buttonStart: {
+    width: 340,
+    height: 61,
+    backgroundColor: 'red',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
-  description: {
-    fontSize: 16,
-    color: "#333",
-    textAlign: "center",
+  textProductDetail: {
+    fontFamily: 'Voltaire',
+    fontWeight: 400,
+    color: '#00000091',
+    width: 335,
   },
 });
+
 export default ScreenProductDetail;

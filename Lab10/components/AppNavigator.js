@@ -1,11 +1,13 @@
-import React from "react";
-import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import ScreenHome from "../components/ScreenHome";
-import ScreenListProduct from "../components/ScreenListProduct";
-import ScreenProductDetail from "../components/ScreenProductDetail";
-import ScreenAddBike from "../components/ScreenAddBike";
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import ScreenHome from './ScreenHome';
+import ScreenListProduct from './ScreenListProduct';
+import ScreenProductDetail from './ScreenProductDetail';
+import ScreenAddBike from './ScreenAddBike';
+
 const Stack = createNativeStackNavigator();
+
 export default function AppNavigator() {
   return (
     <NavigationContainer>
